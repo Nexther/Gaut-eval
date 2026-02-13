@@ -14,5 +14,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy smoke test
-        run: echo "CD Runner déclenché ✅"
+
+      - name: Deploy to /var/www/eval
+        run: |
+          sudo mkdir -p /var/www/eval
+          sudo cp -r ./* /var/www/eval/
+          sudo rm -rf /var/www/eval/.git /var/www/eval/.github || true
