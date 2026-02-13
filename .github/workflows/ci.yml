@@ -13,8 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install tidy (HTML validator)
-        run: sudo apt-get update && sudo apt-get install -y tidy
-
-      - name: Validate index.html
-        run: tidy -qe index.html
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
